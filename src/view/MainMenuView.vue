@@ -8,8 +8,8 @@ const emit = defineEmits(['step'])
             <div class="card-body">
                 <h5 class="card-title">Nowy identyfikator parkingowy</h5>
                 <h6 class="card-subtitle my-3 text-muted">
-                    Wygeneruj identyfikator, 
-                    aby otrzymać przepustkę uprawniającą do wjazdu na parking pod trybuną stadionu
+                    Wygeneruj identyfikator, aby otrzymać przepustkę 
+                    uprawniającą do wjazdu na parking przy ulicy Czerniakowskiej
                 </h6>
                 <button class="btn btn-outline-primary btn-lg" @click="emit('step', 10)">
                     Wygeneruj
