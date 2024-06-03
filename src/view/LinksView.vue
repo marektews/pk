@@ -52,10 +52,10 @@ function onDownloadPassID() {
             <div class="card-body">
                 <h3>Mapa dojazdu</h3>
                 <p class="card-text">
-                    Mapka pokazuje umiejscowienie wjazdu na parking przy ulicy Czerniakowskiej.
+                    Mapka pokazuje umiejscowienie wjazdu na parking Torwar.
                 </p>
-                <a href="parking2-mapa.pdf" download="parking2-mapa.pdf" class="btn btn-lg btn-primary">
-                    <i class="fa-solid fa-file-pdf" />
+                <a href="parking-torwar-mapa.png" download="parking-torwar-mapa.png" class="btn btn-lg btn-primary">
+                    <i class="fa-solid fa-file-png" />
                     Pobierz mapę
                 </a>
             </div>

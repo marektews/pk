@@ -1,5 +1,5 @@
 # pk
-Identyfikatory na parking księżycowy
+Identyfikatory na parking przeznaczony dla pojazdów służbowych działów kongresowych.
 
 This template should help get you started developing with Vue 3 in Vite.
 

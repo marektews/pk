@@ -20,7 +20,7 @@ const pkID = ref(-1)
             <img width="48" height="48" src="@/assets/Parking_icon.svg" />
             <div>
                 <div class="hdr-title">Identyfikator parkingowy - działy kongresowe</div>
-                <div class="hdr-subtitle">Identyfikacja pojazdów uprawnionych do wjazdu na parking przy Czerniakowskiej</div>
+                <div class="hdr-subtitle">Identyfikacja pojazdów uprawnionych do wjazdu na parking Torwar</div>
             </div>
         </header>
 
