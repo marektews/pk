@@ -55,7 +55,7 @@ function onDownloadPassID() {
                     Mapka pokazuje umiejscowienie wjazdu na parking Torwar.
                 </p>
                 <a href="parking-torwar-mapa.png" download="parking-torwar-mapa.png" class="btn btn-lg btn-primary">
-                    <i class="fa-solid fa-file-png" />
+                    <i class="fa-solid fa-file-image" />
                     Pobierz mapę
                 </a>
             </div>
