@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import MainManuView from './view/MainMenuView.vue'
 import LoginView from './view/LoginView.vue'
 import GenerateView from './view/create/GenerateView.vue'
-// import NumberOfUsesTestView from './view/create/NumberOfUsesTestView.vue'
+import NumberOfUsesTestView from './view/create/NumberOfUsesTestView.vue'
 import LinksView from './view/LinksView.vue'
 import GetCarRegistrationNumber from './view/GetCarRegistrationNumber.vue'
 import UpdateIdentView from './view/update/UpdateIdentView.vue'
@@ -34,12 +34,12 @@ const pkID = ref(-1)
             />
 
             <!-- Generowanie nowego -->
-            <!-- <NumberOfUsesTestView v-else-if="step === 10"
-                :congregation-name="department.name"
+            <NumberOfUsesTestView v-else-if="step === 10"
+                :department="department"
                 @back="step = 1"
                 @next="step = 11"
-            /> -->
-            <GenerateView v-else-if="step === 10"
+            />
+            <GenerateView v-else-if="step === 11"
                 :department="department"
                 @back="step = 1"
                 @next="step = 31; pkID = $event"

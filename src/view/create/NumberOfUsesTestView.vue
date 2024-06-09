@@ -2,20 +2,20 @@
 import { ref, onMounted } from 'vue'
 import FooterButtons from '@/components/btns/FooterButtons.vue'
 
-const props = defineProps(['congregationName'])
+const props = defineProps(['department'])
 const emit = defineEmits(['next', 'back'])
 const checkResult = ref(0)
 
 onMounted(() => {
-    fetch(`/api/srp/isfreepass/${props.congregationName}`)
+    fetch(`/api/pk/isfreepass/${props.department.name}`)
     .then(response => {
-        console.log('SRP check free pass:', response.status)
+        console.log('PK check free pass:', response.status)
         checkResult.value = response.status
         if(response.status === 200) {
             emit('next')
         } 
     })
-    .catch(err => console.log('SRP check free pass error:', err))
+    .catch(err => console.log('PK check free pass error:', err))
 })
 </script>
 
@@ -24,7 +24,10 @@ onMounted(() => {
         <i class="fa-solid fa-triangle-exclamation" />
         <div>
             <div>Niestety, wszystkie identyfikatory zostały już wykorzystane.</div>
-            <div>Poproś starszych ze swojego zboru o wyjaśnienie tej sprawy.</div>
+            <div>
+                Poproś koordynatora swojego działu o wyjaśnienie tej sprawy 
+                lub skontaktuj się z koordynatorem Działu Służby Parkingowej.
+            </div>
         </div>
     </div>
 
