@@ -10,6 +10,13 @@ const selected = computed({
         emit('update:modelValue', value)
     }
 })
+const onelang = computed(() => {
+    let o = {}
+    hints.value.forEach(element => {
+        o[element] = 1
+    });
+    return Object.keys(o).length === 1
+})
 
 const props = defineProps(['modelValue'])
 const emit = defineEmits(['update:modelValue', 'finished'])
@@ -40,7 +47,12 @@ async function getHints() {
             class="form-select form-select-lg"
         >
             <option v-for="(item, index) in hints" :key="index" :value="item">
-                {{ item.lang }} - {{ item.name }}
+                <span v-if="onelang">
+                    {{ item.name }}
+                </span>
+                <span v-else>
+                    {{ item.lang }} - {{ item.name }}
+                </span>
             </option>
         </select>
     </div>
