@@ -13,7 +13,14 @@ const selected = computed({
 const onelang = computed(() => {
     let o = {}
     hints.value.forEach(element => {
-        o[element] = 1
+        o[element.lang] = 1
+    });
+    return Object.keys(o).length === 1
+})
+const onetura = computed(() => {
+    let o = {}
+    hints.value.forEach(element => {
+        o[element.tura] = 1
     });
     return Object.keys(o).length === 1
 })
@@ -47,11 +54,14 @@ async function getHints() {
             class="form-select form-select-lg"
         >
             <option v-for="(item, index) in hints" :key="index" :value="item">
-                <span v-if="onelang">
-                    {{ item.name }}
+                <span v-if="!onelang">
+                    {{ item.lang }} |
                 </span>
-                <span v-else>
-                    {{ item.lang }} - {{ item.name }}
+                <span v-if="!onetura">
+                    W{{ item.tura }} |
+                </span>
+                <span>
+                    {{ item.name }}
                 </span>
             </option>
         </select>
