@@ -1,7 +1,11 @@
 <script setup>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faFilePdf, faFileImage } from '@fortawesome/free-solid-svg-icons';
 import BackButton from '@/components/btns/BackButton.vue'
 
-const props = defineProps(['pkid'])
+const props = defineProps({
+    pkid: { type: String, default: "" },
+})
 
 defineEmits(['back'])
 
@@ -32,7 +36,6 @@ function onDownloadPassID() {
 
 <template>
     <div class="container">
-
         <div class="card text-bg-dark">
             <div class="card-body">
                 <h3>Identyfikator</h3>
@@ -41,8 +44,11 @@ function onDownloadPassID() {
                     Umiejscowienie identyfikatora powinno ułatwiać jego weryfikację 
                     - przyśpieszy to odprawę przy bramie wjazdowej na parking.
                 </p>
-                <button class="btn btn-lg btn-primary" @click="onDownloadPassID">
-                    <i class="fa-solid fa-file-pdf" />
+                <button 
+                    class="btn btn-lg btn-primary" 
+                    @click="onDownloadPassID"
+                >
+                    <FontAwesomeIcon :icon="faFilePdf" />
                     Pobierz identyfikator
                 </button>
             </div>
@@ -54,13 +60,20 @@ function onDownloadPassID() {
                 <p class="card-text">
                     Mapka pokazuje umiejscowienie wjazdu na parking Torwar.
                 </p>
-                <a href="parking-torwar-mapa.png" download="parking-torwar-mapa.png" class="btn btn-lg btn-primary">
-                    <i class="fa-solid fa-file-image" />
+                <a
+                    href="parking-torwar-mapa.png" 
+                    download="parking-torwar-mapa.png" 
+                    class="btn btn-lg btn-primary"
+                >
+                    <FontAwesomeIcon :icon="faFileImage" />
                     Pobierz mapę
                 </a>
             </div>
         </div>
 
-        <BackButton class="mt-5" @click="$emit('back')" />
+        <BackButton 
+            class="mt-5" 
+            @click="$emit('back')" 
+        />
     </div>
 </template>

@@ -18,16 +18,21 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="footer-buttons-layout mt-5">
-        <BackButton v-if="props.backVisible"
+    <div 
+        class="footer-buttons-layout mt-5"
+    >
+        <BackButton 
+            v-if="props.backVisible"
             :disabled="!backEnabled"
             @click="$emit('back')" 
         />
-        <NextButton v-if="props.nextVisible"
+        <NextButton 
+            v-if="props.nextVisible"
             :disabled="!nextEnabled"
             @click="$emit('next')" 
         />
-        <SubmitButton v-if="props.submitVisible"
+        <SubmitButton 
+            v-if="props.submitVisible"
             :disabled="!submitEnabled"
             @click="$emit('submit')"
         />

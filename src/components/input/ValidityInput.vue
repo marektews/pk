@@ -5,7 +5,7 @@ const valid = ref(null)
 const inputCtrl = ref(null)
 
 const props = defineProps({
-    modelValue: { type: String },
+    modelValue: { type: String, default: "" },
     type: { type: String, default: "text" },
     maxLength: { type: String, default: "" },
     placeholder: { type: String, default: "" },
@@ -59,7 +59,8 @@ watch(() => props.modelValue, (newValue) => {
 </script>
 
 <template>
-    <input ref="inputCtrl"
+    <input 
+        ref="inputCtrl"
         class="form-control form-control-lg"
         :class="validityClass"
         :type="props.type"
@@ -72,5 +73,5 @@ watch(() => props.modelValue, (newValue) => {
         @input="onInput($event)"
 
         @blur="onBlur($event)"
-    />
+    >
 </template>

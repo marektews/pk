@@ -5,7 +5,7 @@ const inputCtrl = ref(null)
 const valid = ref(null)
 
 const props = defineProps({
-    modelValue: { type: String },
+    modelValue: { type: String, default: "" },
     title: { type: String, default: "" },
     type: { type: String, default: "text" },
     maxLength: { type: String, default: "" },
@@ -63,14 +63,15 @@ watch(() => props.modelValue, (newValue) => {
 
 <template>
     <div>
-
-        <label v-if="title.length"
+        <label 
+            v-if="title.length"
             class="form-label"
         >
             {{ props.title }}
         </label>
 
-        <input ref="inputCtrl"
+        <input
+            ref="inputCtrl"
             class="form-control form-control-lg"
             :class="validityClass"
             :type="props.type"
@@ -83,19 +84,28 @@ watch(() => props.modelValue, (newValue) => {
             @input="onInput($event)"
 
             @blur="onBlur($event)"
-        />
+        >
 
-        <template v-if="validFeedback">
-            <div v-if="valid" class="valid-feedback">
+        <template
+            v-if="validFeedback"
+        >
+            <div 
+                v-if="valid" 
+                class="valid-feedback"
+            >
                 {{ validFeedback }}
             </div>
         </template>
         
-        <template v-if="invalidFeedback">
-            <div v-if="!valid" class="invalid-feedback">
+        <template 
+            v-if="invalidFeedback"
+        >
+            <div 
+                v-if="!valid" 
+                class="invalid-feedback"
+            >
                 {{ invalidFeedback }}
             </div>
         </template>
-
     </div>
 </template>

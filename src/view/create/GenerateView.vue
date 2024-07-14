@@ -5,7 +5,9 @@ import CertificateButton from '@/components/btns/CertificateButton.vue'
 import ValidityInput from '@/components/input/ValidityInput.vue'
 import CarsInfo from '@/components/CarsInfo.vue'
 
-const props = defineProps(['department'])
+const props = defineProps({
+    department: { type: String, default: "" },
+})
 const emit = defineEmits(['back', 'next'])
 
 const genStatus = ref(0)
@@ -82,15 +84,26 @@ function onInputValid(input_nr, valid) {
         <CarsInfo />
 
         <div class="mt-4">
-            <label class="form-label">Wpisz numer rejestracyjny pojazdu (bez spacji i innych separatorów)</label>
+            <label class="form-label">
+                Wpisz numer rejestracyjny pojazdu (bez spacji i innych separatorów)
+            </label>
             <div class="form-check">
-                <input class="form-check-input" id="sdf" type="checkbox" v-model="useManyCars"/>
-                <label class="form-check-label" for="sdf">
+                <input 
+                    id="sdf" 
+                    v-model="useManyCars"
+                    class="form-check-input" 
+                    type="checkbox" 
+                >
+                <label 
+                    class="form-check-label"
+                    for="sdf"
+                >
                     Będę używał różnych pojazdów
                 </label>
             </div>
 
-            <ValidityInput v-if="!useManyCars"
+            <ValidityInput 
+                v-if="!useManyCars"
                 v-model="regNumber1"
                 class="form-control form-control-lg mt-2"
                 pattern="[a-zA-Z0-9\u0400-\u04ff]{1,12}"
@@ -100,7 +113,10 @@ function onInputValid(input_nr, valid) {
                 @input="genStatus = 0"
             />
             
-            <div v-else class="days-layout mt-2">
+            <div 
+                v-else 
+                class="days-layout mt-2"
+            >
                 <div>Piątek:</div>
                 <ValidityInput
                     v-model="regNumber1"
@@ -135,7 +151,10 @@ function onInputValid(input_nr, valid) {
                 />
             </div>
 
-            <div v-if="genStatus === 400" class="mt-4 alert alert-danger">
+            <div 
+                v-if="genStatus === 400" 
+                class="mt-4 alert alert-danger"
+            >
                 Podany pojazd jest już wpisany do innego identyfikatora
             </div>
         </div>

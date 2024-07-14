@@ -5,7 +5,9 @@ import TitleView from '@/components/TitleView.vue'
 import SelectDepartment from '@/components/SelectDepartment.vue'
 import ValidityInputGroup from '@/components/input/ValidityInputGroup.vue'
 
-const props = defineProps(['modelValue'])
+const props = defineProps({
+    modelValue: { type: Object, default: () => {} },
+})
 
 const department = computed({
     get() {
@@ -57,8 +59,7 @@ function onTryAgain() {
 </script>
 
 <template>
-    <div class="container">
-        
+    <div class="container">        
         <TitleView>
             Logowanie
         </TitleView>
@@ -81,13 +82,18 @@ function onTryAgain() {
             />
         </template>
 
-        <div v-else class="alert alert-danger mt-5">
+        <div 
+            v-else 
+            class="alert alert-danger mt-5"
+        >
             <div>Podane dane są niepoprawne!</div>
             <div>Sprawdź czy poprawnie wpisałeś otrzymane hasło.</div>
-            <button class="btn btn-lg btn-danger mt-3" @click="onTryAgain">
+            <button 
+                class="btn btn-lg btn-danger mt-3" 
+                @click="onTryAgain"
+            >
                 Rozumiem, próbujemy jeszcze raz
             </button>
         </div>
-
     </div>
 </template>

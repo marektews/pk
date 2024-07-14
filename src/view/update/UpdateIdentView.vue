@@ -5,7 +5,9 @@ import CertificateButton from '@/components/btns/CertificateButton.vue'
 import ValidityInput from '@/components/input/ValidityInput.vue'
 import CarsInfo from '@/components/CarsInfo.vue'
 
-const props = defineProps(['pkid'])
+const props = defineProps({
+    pkid: { type: String, default: "" },
+})
 const emit = defineEmits(['back', 'next'])
 
 const useManyCars = ref(false)
@@ -67,19 +69,31 @@ function onSaveAndGenerate() {
         <div class="mt-4">
             <label class="form-label">Numer rejestracyjny pojazdu</label>
             <div class="form-check">
-                <input class="form-check-input" id="sdf" type="checkbox" v-model="useManyCars"/>
-                <label class="form-check-label" for="sdf">
+                <input 
+                    id="sdf" 
+                    v-model="useManyCars"
+                    class="form-check-input" 
+                    type="checkbox" 
+                >
+                <label 
+                    class="form-check-label" 
+                    for="sdf"
+                >
                     Będę używał różnych pojazdów
                 </label>
             </div>
 
-            <ValidityInput v-if="!useManyCars"
+            <ValidityInput 
+                v-if="!useManyCars"
                 v-model="regNumber1"
                 class="form-control form-control-lg mt-2"
                 required
             />
             
-            <div v-else class="days-layout mt-2">
+            <div 
+                v-else 
+                class="days-layout mt-2"
+            >
                 <div>Piątek:</div>
                 <ValidityInput
                     v-model="regNumber1"
@@ -103,10 +117,16 @@ function onSaveAndGenerate() {
             </div>
         </div>
 
-        <CertificateButton class="mt-5" @click="onSaveAndGenerate">
+        <CertificateButton 
+            class="mt-5" 
+            @click="onSaveAndGenerate"
+        >
             Zapisz i ponownie wygeneruj identyfikator
         </CertificateButton>
-        <BackButton class="mt-5 ms-2" @click="emit('back')">
+        <BackButton 
+            class="mt-5 ms-2" 
+            @click="emit('back')"
+        >
             Anuluj
         </BackButton>
     </div>

@@ -17,53 +17,69 @@ const pkID = ref(-1)
 <template>
     <div class="container">
         <header>
-            <img width="48" height="48" src="@/assets/Parking_icon.svg" />
+            <img 
+                width="48" 
+                height="48" 
+                src="@/assets/Parking_icon.svg" 
+            >
             <div>
-                <div class="hdr-title">Identyfikator parkingowy - działy kongresowe</div>
-                <div class="hdr-subtitle">Identyfikacja pojazdów uprawnionych do wjazdu na parking Torwar</div>
+                <div class="hdr-title">
+                    Identyfikator parkingowy - działy kongresowe
+                </div>
+                <div class="hdr-subtitle">
+                    Identyfikacja pojazdów uprawnionych do wjazdu na parking Torwar
+                </div>
             </div>
         </header>
 
         <main>
-            <LoginView v-if="step === 0"
+            <LoginView 
+                v-if="step === 0"
                 v-model="department"
                 @next="step = 1"
             />
-            <MainManuView v-else-if="step === 1" 
+            <MainManuView 
+                v-else-if="step === 1" 
                 @step="step = $event"
             />
 
             <!-- Generowanie nowego -->
-            <NumberOfUsesTestView v-else-if="step === 10"
+            <NumberOfUsesTestView 
+                v-else-if="step === 10"
                 :department="department"
                 @back="step = 1"
                 @next="step = 11"
             />
-            <GenerateView v-else-if="step === 11"
+            <GenerateView 
+                v-else-if="step === 11"
                 :department="department"
                 @back="step = 1"
                 @next="step = 31; pkID = $event"
             />
 
             <!-- Aktualizacja istniejącego -->
-            <GetCarRegistrationNumber v-else-if="step === 20"
+            <GetCarRegistrationNumber 
+                v-else-if="step === 20"
                 :department="department"
                 @next="step = 21; pkID = $event"
                 @back="step = 1"
             />
-            <UpdateIdentView v-else-if="step === 21"
+            <UpdateIdentView 
+                v-else-if="step === 21"
                 :pkid="pkID"
                 @back="step = 1"
                 @next="step = 31"
             />
 
             <!-- Pobieranie -->
-            <GetCarRegistrationNumber v-else-if="step === 30"
+            <GetCarRegistrationNumber 
+                v-else-if="step === 30"
                 :department="department"
                 @next="step = 31; pkID = $event"
                 @back="step = 1"
             />
-            <LinksView v-else-if="step === 31"
+            <LinksView 
+                v-else-if="step === 31"
                 :pkid="pkID"
                 @back="step = 1"
             />

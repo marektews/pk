@@ -4,7 +4,9 @@ import ValidityInputGroup from '@/components/input/ValidityInputGroup.vue'
 import FooterButtons from '@/components/btns/FooterButtons.vue'
 
 const emit = defineEmits(['next', 'back'])
-const props = defineProps(['department'])
+const props = defineProps({
+    department: { type: String, default: "" },
+})
 
 const _regNumber = ref('')
 const showAlert = ref(false)
@@ -49,7 +51,10 @@ function onCheckRegNumber() {
             @input="showAlert = false"
         />
 
-        <div v-if="showAlert" class="alert alert-danger mt-4">
+        <div 
+            v-if="showAlert" 
+            class="alert alert-danger mt-4"
+        >
             <div>Podany numer rejestracyjny pojazdu nie występuje w żadnym identyfikatorze.</div>
         </div>
 
