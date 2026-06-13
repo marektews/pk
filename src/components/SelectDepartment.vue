@@ -37,16 +37,24 @@ async function getHints() {
         const res = await fetch(`/api/pk/hints`)
         if(res.status === 200) {
             hints.value = await res.json()
-            hints.value.sort((a,b) => {
-                let t = a.tura - b.tura
-                if(t !== 0) return t
-                return a.name.localeCompare(b.name)
-            })
+            // hints.value.sort((a,b) => {
+            //     let t = a.tura - b.tura
+            //     if(t !== 0) return t
+            //     return a.name.localeCompare(b.name)
+            // })
         }
     }
     catch(e) {
         console.debug(e)
     }
+}
+
+function getOptionLabel(item) {
+    let label = ''
+    if(!onelang.value) label += item.lang + ' | '
+    if(!onetura.value) label += 'W' + item.tura + ' | '
+    label += item.name
+    return label
 }
 </script>
 
@@ -59,20 +67,8 @@ async function getHints() {
             v-model="selected"
             class="form-select form-select-lg"
         >
-            <option 
-                v-for="(item, index) in hints" 
-                :key="index" 
-                :value="item"
-            >
-                <span v-if="!onelang">
-                    {{ item.lang }} |
-                </span>
-                <span v-if="!onetura">
-                    W{{ item.tura }} |
-                </span>
-                <span>
-                    {{ item.name }}
-                </span>
+            <option v-for="(item, index) in hints" :key="index" :value="item">
+                {{ getOptionLabel(item) }}
             </option>
         </select>
     </div>

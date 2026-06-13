@@ -31,8 +31,8 @@ function onGenerateID() {
     let data = {
         dep_id: props.department.id,
         regnum1: regNumber1.value,
-        regnum2: regNumber2.value,
-        regnum3: regNumber3.value,
+        regnum2: regNumber2.value.length > 0 ? regNumber2.value : null,
+        regnum3: regNumber3.value.length > 0 ? regNumber3.value : null,
     }
     console.log('Generate PK pass card source data:', data)
     fetch('/api/pk/create', {
@@ -64,8 +64,7 @@ const isGenButtonDisabled = computed(() => {
             return false
         }
         else {
-            return regNumber1.value.length === 0 
-                || !validInputs.value[0]
+            return regNumber1.value.length === 0 || !validInputs.value[0]
         }
     }
     catch(e) {

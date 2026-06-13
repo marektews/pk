@@ -58,11 +58,11 @@ function onDownloadPassID() {
             <div class="card-body">
                 <h3>Mapa dojazdu</h3>
                 <p class="card-text">
-                    Mapka pokazuje umiejscowienie wjazdu na parking Torwar.
+                    Mapka pokazuje umiejscowienie wjazdu na parking Czerniakowska.
                 </p>
                 <a
-                    href="parking-torwar-mapa.png" 
-                    download="parking-torwar-mapa.png" 
+                    href="parking-czerniakowska-mapa.png" 
+                    download="parking-czerniakowska-mapa.png" 
                     class="btn btn-lg btn-primary"
                 >
                     <FontAwesomeIcon :icon="faFileImage" />

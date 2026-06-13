@@ -11,7 +11,7 @@ const emit = defineEmits(['step'])
                 </h5>
                 <h6 class="card-subtitle my-3 text-muted">
                     Wygeneruj identyfikator, aby otrzymać przepustkę 
-                    uprawniającą do wjazdu na parking Torwar
+                    uprawniającą do wjazdu na parking Czerniakowska
                 </h6>
                 <button 
                     class="btn btn-outline-primary btn-lg" 
@@ -62,11 +62,11 @@ const emit = defineEmits(['step'])
                     Mapa dojazdu
                 </h5>
                 <h6 class="card-subtitle my-3 text-muted">
-                    Mapka pokazuje umiejscowienie wjazdu na parking Torwar.
+                    Mapka pokazuje umiejscowienie wjazdu na parking Czerniakowska.
                 </h6>
                 <a 
-                    href="parking-torwar-mapa.png" 
-                    download="parking-torwar-mapa.png" 
+                    href="parking-czerniakowska-mapa.png" 
+                    download="parking-czerniakowska-mapa.png" 
                     class="btn btn-lg btn-outline-primary"
                 >
                     Pobierz mapę

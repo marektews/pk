@@ -5,7 +5,7 @@ import FooterButtons from '@/components/btns/FooterButtons.vue'
 
 const emit = defineEmits(['next', 'back'])
 const props = defineProps({
-    department: { type: String, default: "" },
+    department: { type: Object },
 })
 
 const _regNumber = ref('')

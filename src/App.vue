@@ -27,7 +27,7 @@ const pkID = ref(-1)
                     Identyfikator parkingowy - działy kongresowe
                 </div>
                 <div class="hdr-subtitle">
-                    Identyfikacja pojazdów uprawnionych do wjazdu na parking Torwar
+                    Identyfikacja pojazdów uprawnionych do wjazdu na parking Czerniakowska
                 </div>
             </div>
         </header>
