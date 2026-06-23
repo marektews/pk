@@ -11,7 +11,7 @@ const emit = defineEmits(['next', 'back'])
 const checkResult = ref(0)
 
 onMounted(() => {
-    fetch(`/api/pk/isfreepass/${props.department.name}/${props.department.tura}`)
+    fetch(`/api/pk/isfreepass/${encodeURIComponent(props.department.name)}/${props.department.tura}`)
     .then(response => {
         console.log('PK check free pass:', response.status)
         checkResult.value = response.status
